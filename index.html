@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>leaflet-map-simple</title>
+  <title>COVID-19 lockdown map</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
 
@@ -32,8 +32,10 @@
   <script>
 
   /* Set up the map with initial center and zoom level */
+  var centre = [53.1377073,-6.0967071];
+
   var map = L.map('map', {
-    center: [53.1377073,-6.0967071], // EDIT latitude, longitude to re-center map
+    center: centre,
     zoom: 14,  // EDIT from 1 to 18 -- decrease to zoom out, increase to zoom in
     scrollWheelZoom: false
   });
@@ -44,10 +46,10 @@
   }).addTo(map);
 
   /* Display a blue point marker with pop-up text */
-  L.marker([53.1377073,-6.0967071]).addTo(map) // EDIT latitude, longitude to re-position marker
-  .bindPopup("Insert pop-up text here"); // EDIT pop-up text message
+  L.marker(centre).addTo(map)
+  .bindPopup("Home");
 
-  var circle = L.circle([53.1377073,-6.0967071], {
+  var circle = L.circle(centre, {
     color: 'green',
     fillColor: 'green',
     fillOpacity: 0.05,
